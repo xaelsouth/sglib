@@ -1,11 +1,12 @@
-// This program uses queue to echo its parameters
-// Then it prints parameters in descending order
-// using priority queue
-// For example:
-//   a.out 1 3 5 2
-// writes:
-//   1 3 5 2
-//   5 3 2 1
+/* This program uses queue to echo its parameters
+   Then it prints parameters in descending order
+   using priority queue
+   For example:
+     a.out 1 3 5 2
+   writes:
+     1 3 5 2
+     5 3 2 1
+*/
 
 
 #include <stdio.h>
@@ -15,13 +16,13 @@
 #define MAX_PARAMS 100
 
 typedef struct iq {int a[MAX_PARAMS]; int i,j;} iq;
-SGLIB_DEFINE_QUEUE_FUNCTIONS(iq, int, a, i, j, MAX_PARAMS);
+SGLIB_DEFINE_QUEUE_FUNCTIONS(iq, int, a, i, j, MAX_PARAMS)
 
 int main(int argc, char **argv) {
   int i, ai,aj, n;
   int a[MAX_PARAMS];
 
-  // echo parameters using a queue
+  /* echo parameters using a queue */
   SGLIB_QUEUE_INIT(int, a, ai, aj);
   for (i=1; i<argc; i++) {
     sscanf(argv[i],"%d", &n);
@@ -33,7 +34,7 @@ int main(int argc, char **argv) {
   }
   printf("\n");
 
-  // print parameters in descending order
+  /* print parameters in descending order */
   SGLIB_HEAP_INIT(int, a, ai);
   for (i=1; i<argc; i++) {
     sscanf(argv[i],"%d", &n);
